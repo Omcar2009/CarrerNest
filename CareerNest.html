@@ -1,0 +1,3749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerNest®</title>
+</head>
+<style>
+/* ------------------------- Global Styles & Reset ----------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #184f96;
+}
+
+a {
+    text-decoration: none;
+    color: #5f5f5f;
+}
+
+/* ------------------------- Login Page CSS ----------------- */
+.login-body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #184f96;
+    padding: 20px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 900px;
+    min-height: 500px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    display: flex; 
+    background-color: white;
+}
+
+.login-leftpanel {
+    width: 55%;
+    background-color: #184f96;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.login-leftpanel h1 {
+    color: orange;
+    margin-top: 15px;
+}
+
+.login-leftpanel p {
+    width: 80%;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.login-rightpanel {
+    width: 45%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.login-rightpanel h2 {
+    color: black;
+    margin-bottom: 15px;
+}
+
+.login-rightpanel_input {
+    margin: 10px 0;
+    width: 100%;
+    max-width: 260px;
+}
+
+.login-rightpanel_input input {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.forgot {
+    width: 100%;
+    max-width: 260px; 
+    text-align: right; 
+    margin-bottom: 15px; 
+}
+
+.forgot a {
+    color: #4b0082; 
+    font-size: 14px;
+}
+
+.submitbtn {
+    width: 100%;
+    max-width: 260px;
+    padding: 12px; 
+    background-color: rgb(245, 147, 0);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.submitbtn:hover {
+    background-color: rgb(220, 130, 0); 
+}
+
+/* ------------------------- Signup Page CSS ----------------- */
+.sign-body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #184f96;
+    padding: 20px;
+}
+
+.sign-container {
+    min-height: 550px;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    display: flex;
+    background-color: white;
+}
+
+.sign-leftpanel {
+    width: 50%;
+    background-color: #184f96;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.sign-leftpanel h1 {
+    color: orange;
+    margin-top: 15px;
+}
+
+.sign-leftpanel p {
+    width: 70%;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.sign-rightpanel {
+    width: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.sign-rightpanel h2 {
+    color: black;
+    margin-bottom: 15px;
+}
+
+.sign-rightpanel_input {
+    margin: 10px 0;
+    width: 100%;
+    max-width: 260px;
+}
+
+.sign-rightpanel_input input {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* ------------------------ Forgot Password Page CSS ----------------- */
+.f-body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #184f96;
+    padding: 20px;
+}
+
+.f-container {
+    min-height: 550px;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    display: flex;
+    background-color: white;
+}
+
+.f-leftpanel {
+    width: 50%;
+    background-color: #184f96;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.f-leftpanel h1 {
+    color: orange;
+    margin-top: 15px;
+}
+
+.f-leftpanel p {
+    width: 70%;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.f-rightpanel {
+    width: 50%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.f-rightpanel h2 {
+    color: black;
+    margin-bottom: 15px;
+}
+
+.f-rightpanel_input {
+    margin: 10px 0;
+    width: 100%;
+    max-width: 260px;
+}
+
+.f-rightpanel_input input {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* ------------------------- Home & Dashboards CSS --------------------------- */
+.home-body {
+    background: #f2ecec;
+    color: #5f5f5f;
+    padding-top: 87px;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 6px 6%;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    width: 65px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+}
+
+.navbar-center ul li {
+    display: inline-block;
+    list-style: none;
+}
+
+.navbar-center ul li a {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin: 5px 8px;
+    padding-right: 5px;
+    position: relative;
+}
+
+.navbar-center ul li a img {
+    width: 30px;
+}
+
+.navbar-center ul li a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #045be6;
+    position: absolute;
+    bottom: -15px;
+    transition: width 0.3s;
+} 
+
+.navbar-center ul li a:hover::after,
+.navbar-center ul li a.active-link::after {
+    width: 100%;  
+}
+
+.nav-profile-img {
+    width: 40px;
+    border-radius: 50%;
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+.online {
+    position: relative;
+}
+
+.online::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    right: 0px;
+    top: 0px;
+    background: #41db51;
+    position: absolute;
+}
+
+.search-box {
+    background: #fcfcfc;
+    width: 210px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border: 1px solid #e0dfdc;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+} 
+
+.search-box img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.search-box input {
+    width: 100%;
+    min-width: 0;
+    background: transparent;
+    padding: 8px;
+    outline: none;
+    border: none;
+}
+
+.container {
+    padding: 20px 6%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.sidebar-profilebox {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.sidebar-profileinfo {
+    padding: 0 25px;
+}
+
+.sidebar-profileinfo img.profilePic {
+    width: 90px;
+    height: 90px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    background: #fff;
+    padding: 4px; 
+    margin-top: -45px;
+}
+
+.sidebar-profileinfo h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+}
+
+.sidebar-profileinfo h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #777;
+}
+
+.sidebar-profileinfo ul {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.sidebar-profileinfo ul li {
+    width: 100%;
+    margin: 5px 0;
+    font-size: 13px;
+}
+
+.sidebar-profileinfo ul li span {
+    float: right;
+    color: #045be6;
+}
+
+.sidebar-profilelink {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ccc;
+}
+
+.sidebar-profilelink a {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+    font-size: 13px;
+    border-left: 1px solid #ccc;
+}
+
+.sidebar-profilelink a:first-child {
+    border-left: 0;
+}
+
+.sidebar-profilelink a img {
+    width: 20px;
+    margin-right: 10px;
+}
+.sidebar-usefullink {
+    width: 100%;
+    padding: 15px 10px;
+    text-align: center;
+}
+
+.sidebar-usefullink > a {
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 5px;
+}
+
+.coppyright-msg {
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.coppyright-msg img {
+    width: 130px !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto 6px;
+    object-fit: contain;
+}
+
+.coppyright-msg p {
+    font-size: 11px;
+    margin: 0;
+    line-height: 1.4;
+}
+.sidebar-activity, .sidebar-news, .sidebar-ad, .sidebar-people {
+    background: #fff;
+    padding: 15px 25px;
+    margin: 12px 0;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.sidebar-activity h3, .sidebar-news h3, .sidebar-people h3 {
+    color: #777;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.sidebar-activity a {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: #888;
+    margin: 6px 0;
+}
+
+.sidebar-activity a img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.discover-morelink {
+    border-top: 1px solid #ccc;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: -25px;
+    margin-right: -25px;
+}
+
+.discover-morelink a {
+    color: #045be6;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.left-sidebar {
+    flex: 0 0 23%;
+    width: 23%;
+    align-self: flex-start;
+    position: sticky;
+    top: 95px;
+}
+
+.main-content {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+    align-self: flex-start;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.right-sidebar {
+    flex: 0 0 23%;
+    width: 23%;
+    align-self: flex-start;
+    position: sticky;
+    top: 95px;
+}
+
+.create-post {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.create-postinput {
+    padding: 20px 25px 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.create-postinput img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.create-postinput textarea {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    resize: none;
+    background: transparent;
+    margin-top: 8px;
+}
+
+::placeholder {
+    font-weight: 500;
+}
+
+.create-postlinks {
+    display: flex;
+    align-items: flex-start;
+}
+
+.create-postlinks li {
+    list-style: none;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    flex-basis: 25%;
+    height: 40px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.create-postlinks li img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.create-postlinks li:last-child {
+    background: #045be6;
+    color: #fff;
+    border-top: 0;
+    border-right: 0;
+}
+
+.sort-by {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.sort-by hr {
+    flex: 1;
+    border: 0;
+    height: 1px;
+    background: #ccc;
+}
+
+.sort-by p {
+    font-size: 13px;
+    padding: 5px;
+}
+
+.sort-by p span {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.post {
+    background: #fff;
+    padding: 20px 25px 5px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.post-people {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.post-people img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.post-people h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.post p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.post-stats {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 6px;
+}
+
+.post-stats div {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.post-stats img {
+    width: 15px;
+}
+
+.liked-users {
+    margin-left: 5px;
+}
+
+.post-activity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.post-activity div {
+    display: flex;
+    align-items: center;
+}
+
+.post-activity-user-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-activity-link img {
+    width: 18px;
+    margin-right: 8px;
+}
+
+/* ----------------- Profile Dropdown Menu ------------------------ */
+.profile-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 320px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.profile-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.profile-menu {
+    background: #222;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.user-info h3 {
+    font-weight: 500;
+    margin-bottom: -7px;
+}
+
+.user-info a {
+    color: #c9dbf8;
+    font-size: 13px;
+}
+
+.profile-menu hr {
+    border: 0;
+    height: 1px;
+    background: #FFF;
+    margin: 15px 0 10px;
+}
+
+.profile-menu-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin: 12px 0;
+    font-size: 14px;
+}
+
+.profile-menu-link p {
+    width: 100%;
+}
+
+.profile-menu-link img {
+    width: 25px;
+    margin-right: 15px;
+}
+
+/* --------------------------------- Job Page CSS ---------------------------------- */
+.job-left-sidebar {
+    flex-basis: 25%;
+    align-self: flex-start;
+    position: sticky;
+    top: 95px;
+}
+
+.job-right-sidebar {
+    flex-basis: 73%;
+    align-self: flex-start;
+}
+
+.job-sidebar-heading, .job-description {
+    background: #fff;
+    padding: 20px 25px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.job-sidebar-heading h2, .job-description h2 {
+    font-size: 20px;
+    color: rgb(65, 63, 63);
+    margin: 10px 0;
+}
+
+.job-sidebar-heading p, .job-description p {
+    color: #8a8585;
+    font-size: 14px;
+    margin-bottom: 15px;  
+}
+
+.job-ad-link {
+    font-size: 12px;
+    display: inline-block;
+    border: 1px solid #045be6;
+    border-radius: 30px;
+    padding: 5px 15px;
+    color: #045be6;
+    font-weight: 500;
+    margin: 10px 5px 10px 0;
+}
+
+.job-ad-link-1 {
+    font-size: 11px;
+    display: inline-block;
+    margin: 10px 5px 10px 0;
+    padding: 5px 15px;
+    border: 1px solid #5f5f5f;
+    border-radius: 30px;
+    font-weight: 500;
+}
+
+.job-ad-link-2 {
+    background-color: #045be6;
+    font-size: 11px;
+    display: inline-block;
+    border: 1px solid #045be6;
+    border-radius: 30px;
+    padding: 5px 15px;
+    color: #ffffff;
+    font-weight: 500;
+    margin: 10px 5px 10px 0;
+}
+
+.job-see-more-link {
+    font-size: 11px;
+    display: inline-block;
+    margin: 10px 5px 10px 0;
+    padding: 5px 15px;
+    border: 1px solid #5f5f5f;
+    border-radius: 30px;
+    font-weight: 500;
+}
+
+.job-see-all-job-link {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    font-weight: 500;
+    color: #045be6;
+}
+
+.job-see-all-job-link img {
+    width: 15px;
+    margin-left: 8px;
+}
+
+.job-sidebar-activity {
+    background: #fff;
+    padding: 15px 25px;
+    margin: 12px 0;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.job-sidebar-activity a {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #045be6;
+    margin: 10px 0;
+}
+
+.job-sidebar-activity a img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.profile-des-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.profile-des-row img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.profile-des-row > div {
+    flex: 1;
+}
+
+.profile-des-row h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 4px; 
+}
+
+.profile-des-row b {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px; 
+}
+
+/* ------------------------------------ Profile Page CSS ----------------------------- */
+.profile-main {
+    flex-basis: 73%;
+}
+
+.profile-sidebar {
+    flex-basis: 25%;
+    align-self: flex-start;
+    position: sticky;
+    top: 95px;
+}
+
+.profile-container {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.profile-container-inner {
+    padding: 0 4% 20px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: -75px;
+    padding: 5px;
+    background: #fff;
+}
+
+.profile-container h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+}
+
+.mutual-connection {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.mutual-connection img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+    object-fit: cover;
+}
+
+.profile-btn {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.profile-btn a {
+    display: inline-flex;
+    align-items: center;
+    background: #fcf6f6;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.profile-btn a img {
+    width: 18px;
+    margin-right: 5px;
+}
+
+.profile-btn .primery-btn {
+    background: #015C89;
+    color: #fff;
+}
+
+.description {
+    background: #fff;
+    padding: 20px 4%;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.description h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.see-more-link {
+    display: block;
+    text-align: right;
+    font-size: 15px;
+    color: #045be6;
+}
+
+.skill-btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 6px 18px;
+    border: 1px solid #777;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.language-btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 6px 18px;
+    background: #e4e6e4;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.sidebar-people-row {
+    display: flex;
+    align-items: flex-start;
+    margin: 12px 0;
+    gap: 10px;
+}
+
+.sidebar-people-row img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sidebar-people-row h2 {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.sidebar-people-row p {
+    font-size: 11px;
+    color: #777;
+}
+
+.sidebar-people-row a {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 15px;
+    border: 1px solid #5f5f5f;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+/* --------------------- Edit Profile Page CSS ----------------------------------- */
+.edit-profile-body {
+    background: #f3f2ef;
+    min-height: 100vh;
+    padding: 20px 0;
+}
+
+.edit-profile-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.profile-header {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cover-photo {
+    width: 100%;
+    height: 220px;
+    background: #0a66c2;
+}
+
+.profile-info {
+    padding: 20px;
+    position: relative;
+}
+
+.edit-profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    position: absolute;
+    top: -70px;
+    left: 20px;
+    object-fit: cover;
+    background: #ddd;
+}
+
+.edit-photo {
+    margin-top: 70px;
+    margin-bottom: 15px;
+}
+
+.profile-info input, .section input, .section textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.section textarea {
+    resize: none;
+    height: 100px;
+}
+
+.section {
+    background: #fff;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn {
+    background: #0a66c2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #004182;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.skill-tag {
+    background: #e7f3ff;
+    color: #0a66c2;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* ------------------------ Network Page CSS ------------------------- */
+#networksPage {
+    background-color: #f0e8e8; 
+    min-height: 100vh;
+    width: 100%;
+    padding: 90px 6% 20px; 
+}
+
+.networks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e0dfdc;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02); 
+    padding: 16px 24px; 
+}
+
+.networks-header h2 {
+    font-size: 20px;
+    color: #333333;
+    font-weight: 600;
+    margin: 0;
+}
+
+.networks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.network-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e0dfdc;
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.network-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border: 1px solid #e0dfdc;
+}
+
+.network-card h3 {
+    font-size: 16px;
+    color: #181818;
+    margin: 0 0 4px 0;
+    font-weight: 600;
+}
+
+.network-card p {
+    font-size: 14px;
+    color: #666666;
+    margin: 0 0 16px 0;
+}
+
+.networks-page .btn-primary {
+    background-color: #0a66c2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.network-card .btn-outline {
+    background-color: transparent;
+    color: #0a66c2;
+    border: 1px solid #0a66c2;
+    padding: 6px 16px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+@media screen and (min-width: 1200px) {
+
+    .container {
+        width: 100%;
+        max-width: 1600px;
+        margin: auto;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .login-container,
+    .sign-container,
+    .f-container {
+        max-width: 1000px;
+    }
+
+    .main-content {
+        flex-basis: 47%;
+    }
+
+    .left-sidebar,
+    .right-sidebar {
+        flex-basis: 25%;
+    }
+
+    .navbar {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+
+/* =========================
+   LAPTOP / SMALL DESKTOP
+   769px - 1199px
+   ========================= */
+
+@media screen and (max-width: 1199px) {
+
+    /* ---------- Navbar ---------- */
+
+    .navbar {
+        padding: 7px 3%;
+    }
+
+    .search-box {
+        width: 200px;
+    }
+
+    .navbar-center ul li a {
+        margin: 5px 5px;
+        font-size: 13px;
+    }
+
+    .navbar-center ul li a img {
+        width: 26px;
+    }
+
+    .nav-profile-img {
+        width: 38px;
+        height: 38px;
+    }
+
+
+    /* ---------- Main Container ---------- */
+
+    .container {
+        padding-left: 3%;
+        padding-right: 3%;
+        gap: 15px;
+    }
+
+    .left-sidebar,
+    .right-sidebar {
+        flex-basis: 27%;
+    }
+
+    .main-content {
+        flex-basis: 43%;
+    }
+
+
+    /* ---------- Job Page ---------- */
+
+    .job-left-sidebar {
+        flex-basis: 30%;
+    }
+
+    .job-right-sidebar {
+        flex-basis: 67%;
+    }
+
+
+    /* ---------- Profile Page ---------- */
+
+    .profile-main {
+        flex-basis: 70%;
+    }
+
+    .profile-sidebar {
+        flex-basis: 27%;
+    }
+}
+.sort-by p span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sort-by p span img {
+    width: 14px !important;
+    height: 14px !important;
+    object-fit: contain;
+    display: inline-block;
+    margin: 0;
+}
+@media screen and (max-width: 768px) {
+
+    /* ---------- Global ---------- */
+
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+    /* ---------- LOGIN / SIGNUP / FORGOT ---------- */
+
+    .login-body,
+    .sign-body,
+    .f-body {
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .login-container,
+    .sign-container,
+    .f-container {
+        width: 100%;
+        max-width: 500px;
+        min-height: auto;
+        height: auto;
+        flex-direction: column;
+        border-radius: 20px;
+    }
+
+    .login-leftpanel,
+    .login-rightpanel,
+    .sign-leftpanel,
+    .sign-rightpanel,
+    .f-leftpanel,
+    .f-rightpanel {
+        width: 100%;
+        min-height: auto;
+        padding: 30px 20px;
+    }
+
+    .login-leftpanel,
+    .sign-leftpanel,
+    .f-leftpanel {
+        min-height: 250px;
+    }
+
+    .login-leftpanel p,
+    .sign-leftpanel p,
+    .f-leftpanel p {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    .login-leftpanel img,
+    .sign-leftpanel img,
+    .f-leftpanel img {
+        width: 100px;
+        height: auto;
+    }
+
+    .login-rightpanel_input,
+    .sign-rightpanel_input,
+    .f-rightpanel_input,
+    .forgot {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .submitbtn {
+        width: 100%;
+    }
+
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .navbar-left {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .navbar-left .logo img {
+        width: 30px;
+        height: 30px;
+        margin-right: 0;
+    }
+
+    .search-box {
+        width: 100%;
+        max-width: none;
+        height: 38px;
+        flex: 1;
+    }
+
+
+    /* ---------- NAVIGATION MENU ---------- */
+
+    .navbar-center {
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .navbar-center::-webkit-scrollbar {
+        display: none;
+    }
+
+    .navbar-center ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-width: max-content;
+        width: 100%;
+    }
+
+    .navbar-center ul li {
+        display: block;
+        flex-shrink: 0;
+    }
+
+    .navbar-center ul li a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 11px;
+        margin: 2px 8px;
+        padding: 3px;
+        white-space: nowrap;
+    }
+
+    .navbar-center ul li a img {
+        width: 22px;
+        height: 22px;
+        margin-bottom: 3px;
+    }
+
+    .navbar-center ul li a::after {
+        display: none;
+    }
+
+    .navbar-right {
+        display: none;
+    }
+
+
+    /* ---------- HOME ---------- */
+
+    .home-body {
+        padding-top: 0;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 100%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+
+    /* ---------- SIDEBARS ---------- */
+
+    .left-sidebar,
+    .main-content,
+    .right-sidebar,
+    .job-left-sidebar,
+    .job-right-sidebar,
+    .profile-main,
+    .profile-sidebar {
+        width: 100% !important;
+        flex-basis: 100% !important;
+        position: static !important;
+    }
+
+
+    /* ---------- LEFT PROFILE ---------- */
+
+    .sidebar-profileinfo {
+        padding: 0 20px;
+    }
+
+    .sidebar-profileinfo img.profilePic {
+        width: 80px;
+        height: 80px;
+        margin-top: -40px;
+    }
+
+
+    /* ---------- POSTS ---------- */
+
+    .main-content {
+        gap: 15px;
+    }
+
+    .create-postinput {
+        padding: 15px;
+    }
+
+    .create-postlinks li {
+        font-size: 11px;
+        height: 45px;
+    }
+
+    .create-postlinks li img {
+        width: 17px;
+        margin-right: 3px;
+    }
+
+    .post {
+        padding: 15px 15px 5px;
+    }
+
+    .post-people h1 {
+        font-size: 16px;
+    }
+
+    .post-people small {
+        display: block;
+        font-size: 11px;
+    }
+
+    .post p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .post-stats {
+        font-size: 10px;
+    }
+
+    .post-activity {
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    .post-activity-link {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+    }
+
+    .post-activity-link img {
+        width: 16px;
+        margin-right: 3px;
+    }
+
+
+    /* ---------- JOB PAGE ---------- */
+
+    .job-sidebar-heading,
+    .job-description {
+        padding: 15px 18px;
+    }
+
+    .job-sidebar-heading h2,
+    .job-description h2 {
+        font-size: 18px;
+    }
+
+
+    /* ---------- PROFILE PAGE ---------- */
+
+    .profile-container-inner {
+        padding: 0 20px 20px;
+    }
+
+    .profile-pic {
+        width: 110px;
+        height: 110px;
+        margin-top: -55px;
+    }
+
+    .profile-container h1 {
+        font-size: 23px;
+    }
+
+    .profile-btn {
+        gap: 8px;
+    }
+
+    .profile-btn a {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+
+    /* ---------- EDIT PROFILE ---------- */
+
+    .edit-profile-body {
+        padding: 10px;
+    }
+
+    .edit-profile-container {
+        width: 100%;
+        margin: 15px auto;
+    }
+
+    .cover-photo {
+        height: 170px;
+    }
+
+    .edit-profile-pic {
+        width: 100px;
+        height: 100px;
+        top: -50px;
+        left: 15px;
+    }
+
+    .edit-photo {
+        margin-top: 50px;
+    }
+
+    .profile-info,
+    .section {
+        padding: 15px;
+    }
+
+
+    /* ---------- NETWORK PAGE ---------- */
+
+    #networksPage {
+        padding: 15px;
+    }
+
+    .networks-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .networks-header h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .networks-header button {
+        width: 100%;
+    }
+
+    .networks-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .network-card {
+        padding: 18px 12px;
+    }
+
+    .network-card img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .network-card h3 {
+        font-size: 14px;
+    }
+
+    .network-card p {
+        font-size: 12px;
+    }
+
+
+    /* ---------- PROFILE DROPDOWN ---------- */
+
+    .profile-menu-wrap {
+        position: fixed;
+        top: auto;
+        right: 10px;
+        width: calc(100% - 20px);
+        max-width: 350px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+   576px and below
+   ========================= */
+
+@media screen and (max-width: 576px) {
+
+    /* ---------- AUTH PAGES ---------- */
+
+    .login-body,
+    .sign-body,
+    .f-body {
+        padding: 10px;
+    }
+
+    .login-container,
+    .sign-container,
+    .f-container {
+        border-radius: 15px;
+    }
+
+    .login-leftpanel,
+    .sign-leftpanel,
+    .f-leftpanel {
+        min-height: 210px;
+        padding: 25px 15px;
+    }
+
+    .login-leftpanel h2,
+    .sign-leftpanel h2,
+    .f-leftpanel h2 {
+        font-size: 18px;
+    }
+
+    .login-leftpanel p,
+    .sign-leftpanel p,
+    .f-leftpanel p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .login-rightpanel,
+    .sign-rightpanel,
+    .f-rightpanel {
+        padding: 25px 15px;
+    }
+
+    .login-rightpanel h2,
+    .sign-rightpanel h2,
+    .f-rightpanel h2 {
+        font-size: 20px;
+    }
+
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar {
+        padding: 8px 10px;
+        gap: 8px;
+    }
+
+    .search-box {
+        height: 36px;
+        padding: 0 10px;
+    }
+
+    .search-box input {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .navbar-center ul {
+        justify-content: flex-start;
+    }
+
+    .navbar-center ul li a {
+        font-size: 9px;
+        margin: 2px 6px;
+    }
+
+    .navbar-center ul li a img {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    /* ---------- HOME ---------- */
+
+    .container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .sidebar-profilebox,
+    .sidebar-activity,
+    .sidebar-news,
+    .sidebar-ad,
+    .sidebar-people,
+    .create-post,
+    .post {
+        border-radius: 8px;
+    }
+
+
+    /* ---------- CREATE POST ---------- */
+
+    .create-postinput {
+        padding: 12px;
+    }
+
+    .create-postinput img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .create-postinput textarea {
+        font-size: 12px;
+    }
+
+    .create-postlinks li {
+        font-size: 9px;
+        height: 40px;
+    }
+
+    .create-postlinks li img {
+        width: 15px;
+    }
+
+
+    /* ---------- POSTS ---------- */
+
+    .post {
+        padding: 12px 12px 4px;
+    }
+
+    .post-people {
+        margin-bottom: 12px;
+    }
+
+    .post-people img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .post-people h1 {
+        font-size: 14px;
+    }
+
+    .post-people small {
+        font-size: 9px;
+    }
+
+    .post p {
+        font-size: 12px;
+    }
+
+    .post-stats {
+        font-size: 8px;
+    }
+
+    .post-activity {
+        font-size: 10px;
+        overflow-x: auto;
+    }
+
+    .post-activity > div {
+        flex-shrink: 0;
+    }
+
+
+    /* ---------- NETWORK ---------- */
+
+    .networks-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .network-card {
+        padding: 20px 15px;
+    }
+
+
+    /* ---------- PROFILE ---------- */
+
+    .profile-container-inner {
+        padding: 0 15px 15px;
+    }
+
+    .profile-pic {
+        width: 90px;
+        height: 90px;
+        margin-top: -45px;
+    }
+
+    .profile-container h1 {
+        font-size: 20px;
+    }
+
+    .profile-btn {
+        flex-direction: column;
+    }
+
+    .profile-btn a {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .description {
+        padding: 15px;
+    }
+
+    .description h2 {
+        font-size: 18px;
+    }
+
+    .skill-btn,
+    .language-btn {
+        font-size: 10px;
+        padding: 5px 12px;
+    }
+
+
+    /* ---------- EDIT PROFILE ---------- */
+
+    .cover-photo {
+        height: 130px;
+    }
+
+    .edit-profile-pic {
+        width: 80px;
+        height: 80px;
+        top: -40px;
+        left: 12px;
+    }
+
+    .edit-photo {
+        margin-top: 45px;
+    }
+
+    .profile-info input,
+    .section input,
+    .section textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+
+    /* ---------- PROFILE MENU ---------- */
+
+    .profile-menu-wrap {
+        right: 5px;
+        width: calc(100% - 10px);
+    }
+
+    .profile-menu {
+        margin: 5px;
+        padding: 15px;
+    }
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+   400px and below
+   ========================= */
+
+@media screen and (max-width: 400px) {
+
+    .login-leftpanel,
+    .sign-leftpanel,
+    .f-leftpanel {
+        min-height: 190px;
+    }
+
+    .login-leftpanel img,
+    .sign-leftpanel img,
+    .f-leftpanel img {
+        width: 80px;
+    }
+
+    .login-leftpanel h2,
+    .sign-leftpanel h2,
+    .f-leftpanel h2 {
+        font-size: 16px;
+    }
+
+    .login-leftpanel p,
+    .sign-leftpanel p,
+    .f-leftpanel p {
+        font-size: 12px;
+    }
+
+    .navbar-center ul li a {
+        margin: 2px 5px;
+        font-size: 8px;
+    }
+
+    .navbar-center ul li a img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .post-activity {
+        font-size: 9px;
+    }
+
+    .create-postlinks li {
+        font-size: 8px;
+    }
+}
+@media screen and (max-width: 768px) {
+
+    .sidebar-usefullink {
+        width: 100%;
+        padding: 12px 5px;
+        text-align: center;
+    }
+
+    .sidebar-usefullink > a {
+        font-size: 10px;
+        margin: 3px 4px;
+    }
+
+    .coppyright-msg img {
+        width: 110px !important;
+        height: auto !important;
+        margin: 0 auto 5px;
+    }
+
+    .coppyright-msg p {
+        font-size: 10px;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 576px) {
+
+    .profile-des-row {
+        gap: 10px;
+        padding: 12px 0;
+    }
+
+    .profile-des-row img {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        object-fit: contain;
+    }
+
+    .profile-des-row h3 {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+
+    .profile-des-row b {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .job-see-more-link,
+    .job-ad-link,
+    .job-ad-link-1,
+    .job-ad-link-2 {
+        font-size: 9px;
+        padding: 4px 9px;
+        margin: 5px 3px 3px 0;
+    }
+}
+</style>
+<div>
+<!-- ------------------------login-page--------------------------- -->
+<div id="loginPage">
+<div class="login-body">
+<div class="login-container">
+<div class="login-leftpanel">
+<img src="Company logo.png"height="100px" width="130px">
+<br><br>
+<h2>“Connect • Grow • Achieve”</h2>
+<p>
+Connect with professionals,
+build your network and grow
+your career with CareerNest.
+</p>
+</div>
+<div class="login-rightpanel">
+<h2>Login</h2>       
+<form  onsubmit="loginUser(event)">
+<div class="login-rightpanel_input">
+<input type="email" id="loginemail" name="email" placeholder="Enter your E-mail" required>
+</div>            
+<div class="login-rightpanel_input">
+<input type="password" id="loginpassword" name="password" placeholder="Enter Password" required>
+</div>
+<div class="forgot">
+<a href="#" onclick="showSection('forgotPage')">Forgot Password ?</a>
+</div>
+<div class="login-rightpanel_input">
+<input type="submit" value="Send OTP" class="submitbtn">
+</div>
+<div class="login-rightpanel_input" id="otp-box" style="display: none;">
+<input type="text" id="loginEnteredOTP" placeholder="Enter OTP">
+<button onclick="verifyLoginOTP()" class="submitbtn">Verify OTP</button>
+</div>
+Don't have account on CareerNest <a href="#" onclick="showSection('signupPage')">Signup</a>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- --------------------sign-up-page---------------- -->
+<div id="signupPage" style="display:none;">
+<div class="sign-body">
+<div class="sign-container">
+<div class="sign-leftpanel">
+<img src="Company logo.png" height="100px" width="130px">
+<br><br>
+<h2>“Connect • Grow • Achieve”</h2>
+<p>
+Connect with professionals,
+build your network and grow
+your career with CareerNest.
+</p>
+</div>
+<div class="sign-rightpanel">
+<h2>Signup</h2>       
+<form onsubmit="return registerUser(event)"> 
+<div class="sign-rightpanel_input">
+<input type="text" id="name" placeholder="Enter your full name" required>
+</div>
+<div class="sign-rightpanel_input">
+<input type="number" id="phone" name="phone" placeholder="Enter Your Mobile Number" required>
+</div>
+<div class="sign-rightpanel_input">
+<input type="email" id="signupemail" name="email" placeholder="Enter your E-mail" required>
+</div>            
+<div class="sign-rightpanel_input">
+<input type="password" id="signuppassword" name="password" placeholder="Enter Password" required>
+</div>
+<div class="sign-rightpanel_input">
+<input type="submit" value="Submit" class="submitbtn">
+</div>
+Allready have account on CareerNest <a href="#" onclick="showSection('loginPage')">Login</a>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- ---------------------------------F-password-page----------------------- -->
+<div id="forgotPage" style="display:none;">
+<div class="f-body">
+<div class="f-container">
+<div class="f-leftpanel">
+<img src="Company logo.png" height="100px" width="130px">
+<br><br>
+<h2>“Connect • Grow • Achieve”</h2>
+<p>
+Connect with professionals,
+build your network and grow
+your career with CareerNest.
+</p>
+</div>
+        <div class="f-rightpanel">
+            <h2>Reset Password</h2>
+            <form onsubmit="return false;"> 
+                <div class="f-rightpanel_input">
+                    <input type="email" id="forgotEmail" placeholder="Enter your E-mail" required>
+                </div>
+                <div class="f-rightpanel_input">
+                    <input type="button" value="Send OTP" class="submitbtn" onclick="sendforgotOTP()">
+                </div>
+                <div class="f-rightpanel_input">
+                    <input type="number" id="forgotOtp" placeholder="Enter 6 digit OTP" required>
+                </div>
+                <div class="f-rightpanel_input">
+                    <input type="password" id="newPassword" placeholder="Enter New Password" required>
+                </div>
+                <div class="f-rightpanel_input">
+                    <input type="button" value="Reset Password" class="submitbtn" onclick="verifyForgotOTP()">
+                </div>
+                Get the password then <a href="#" onclick="showSection('loginPage')">Log in now</a>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<!-- ---------------------------Navbar-section------------------------------ -->
+<div id="Navbar" style="display:none;">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="#" onclick="showPage('homePage');" class="logo"><img src="logo.png"></a>
+               <div class="search-box">
+                <img src="search.png">
+                <input type="text" placeholder="search">
+               </div>         
+        
+        
+        
+        </div>
+        <div class="navbar-center">
+        <ul>
+            <li><a href="#" onclick="showPage('homePage'); return false;" class="active-link"><img src="home.png"><span>Home</span></a></li>
+            <li><a href="#" onclick="showSection('networksPage'); return false;"><img src="etwork.png"><span>My network</span></a></li>
+            <li><a href="#" onclick="showPage('jobsPage'); return false;"><img src="job.png"><span>jobs</span></a></li>
+            <li><a href="#" onclick="return false;"><img src="message.png"><span>Messageing</span></a></li>
+            <li><a href="#" onclick="return false;"><img src="nortification.png"><span>Notification</span></a></li>
+        </ul>
+        </div>
+        <div class="navbar-right">
+            <div class="online">
+               <img src="user 2.png" class="nav-profile-img" onclick="togglemenu()">
+            </div>
+        </div> 
+        <!-- ---------------------profile-drop-down-menu------------------- -->
+        <div class="profile-menu-wrap" id="profilemenu">
+            <div class="profile-menu">
+                <div class="user-info">
+                    <img src="user 2.png">
+                    <div>
+                        <h3 class="userName"></h3>
+                        <a href="#" onclick="showPage('profilePage')">See your Profile</a>
+                    </div>
+                </div>
+                <hr>
+                <a href="mailto:omkarkulat99@gmail.com" class="profile-menu-link">
+                    <img src="message.png">
+                    <p>Give feedback</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="profile-menu-link">
+                    <img src="setting.png">
+                    <p>Setting & Privacy</p>
+                    <span>></span>
+                </a>
+                <a href="mailto:omkarkulat99@gmail.com" class="profile-menu-link">
+                    <img src="help.png">
+                    <p>Help & Support</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="profile-menu-link">
+                    <img src="Moon.png">
+                    <p>Diplay & Accessiblity</p>
+                    <span>></span>
+                </a>
+                <a href="log in.html" class="profile-menu-link">
+                    <img src="logout.png">
+                    <p>logout</p>
+                    <span>></span>
+                </a>
+            </div>
+        </div> 
+    </nav>
+</div>
+    <div id="homePage" style="display:none;">
+    <div class="home-body">
+    <!-- ---------------------------nav-bar-closed------------------------ -->
+     <div class="container">
+        <div class="left-sidebar">
+    <!-- ----------------------------------left-sidebar-strats----------------- -->
+            <div class="sidebar-profilebox">
+                <a href="#" onclick="showPage('profilePage')"><img src="cover-pic.png" width="100%"></a>
+            <div class="sidebar-profileinfo">
+                <a href="#" onclick="showPage('profilePage')"><img src="user 2.png" class="profilePic"></a>
+                <h1 class="userName"></h1>
+                <h3>Web Developer at Microsoft</h3>
+                <ul>
+                    <li>Your Profile views <span>52</span></li>
+                    <li>Your post views <span>25</span></li>
+                    <li>Your Connections views <span>520</span></li>
+                </ul>
+            </div>
+            <div class="sidebar-profilelink">
+                <a href="#"><img src="save.png">My items</a>
+                <a href="#"><img src="premium.png">Try premium</a>
+            </div>
+            </div>
+            <div class="sidebar-activity">
+                <h3>RECENT</h3>
+                <a href="#"><img src="recent.png">Web Devlopment</a>
+                <a href="#"><img src="recent.png">User Interface</a>
+                <a href="#"><img src="recent.png">Online Learning</a>
+                <a href="#"><img src="recent.png">Learn Online</a>
+                <a href="#"><img src="recent.png">Code Better</a>
+                <a href="#"><img src="recent.png">Group Learning</a>
+                <h3>GROUPS</h3>
+                <a href="#"><img src="group.png">Web design Group</a>
+                <a href="#"><img src="group.png">HTML & CSS Learners</a>
+                <a href="#"><img src="group.png">Python & Javascript Group</a>
+                <a href="#"><img src="group.png">Learn Coding Online</a>
+                <h3>HASHTAG</h3>
+                <a href="#"><img src="hashtag.png">Webdevlopment</a>
+                <a href="#"><img src="hashtag.png">Userinterface</a>
+                <a href="#"><img src="hashtag.png">onlinelearning</a>
+                <div class="discover-morelink">
+                <a href="#">Discover More</a>
+                </div>
+            </div>
+        </div>
+        <!-- ------------------------------------main-content-start---------------------- -->
+        <div class="main-content">
+            <div class="create-post">
+                <div class="create-postinput">
+                <img src="user 2.png">
+                <textarea id="newPostContent" rows="2" placeholder="Write a post"></textarea>
+            </div>
+                <div class="create-postlinks">
+                <li><img src="photo.png">Photo</li>
+                <li><img src="video.png">Video</li>
+                <li><img src="event.png">Event</li>
+                <li onclick="createPost()">Post</li>
+            </div>
+            </div>
+            <div class="sort-by">
+                <hr>
+                <p>sort by: <span>top <img src="Down arrow.png"></span></p>
+            </div>
+            <div class="post">
+                <div class="post-people">
+                    <img src="user 4.png">
+                    <div>
+                        <h1>Benjamin Leo</h1>
+                        <small>Founder & EO of Gellelio Group | Angle Inverstor</small>
+                        <small>2 Hours ago</small>
+                    </div>
+                </div>
+                <p>The Success of every Website depends on search engine optimisation and digital marketing strategy.
+                    If you are on first page off all major search engines then you are ahead your competitors.
+                </p>
+                <img src="post-iamges 12.png" width="100%">
+                <div class="post-stats">
+                    <div>
+                        <img src="thmub.png">
+                        <img src="love.png">
+                        <img src="clap.png">
+                        <span class="liked-users">Abhinav Mishra & 75 others</span>
+                    </div>
+                    <div>
+                        <span>22 Comments &middot; 40 Shares</span>
+                    </div>
+                </div>
+                <div class="post-activity">
+                    <div>
+                        <img src="user 2.png" class="post-activity-user-icon">
+                        <img src="Down arrow.png" class="post-activity-arrow-icon">
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="like.png">
+                        <span>Like</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="Commnt.png">
+                        <span>Comment</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="share.png">
+                        <span>Share</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="send.png">
+                        <span>Send</span>
+                    </div>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-people">
+                    <img src="user 1.png">
+                    <div>
+                        <h1>Laksh George</h1>
+                        <small>Founder & EO of Gellelio Group | Angle Inverstor</small>
+                        <small>2 Hours ago</small>
+                    </div>
+                </div>
+                <p>The Success of every Website depends on search engine optimisation and digital marketing strategy.
+                    If you are on first page off all major search engines then you are ahead your competitors.
+                </p>
+                <img src="post-iamges 4.png" width="100%">
+                <div class="post-stats">
+                    <div>
+                        <img src="thmub.png">
+                        <img src="love.png">
+                        <img src="clap.png">
+                        <span class="liked-users">Abhinav Mishra & 75 others</span>
+                    </div>
+                    <div>
+                        <span>22 Comments &middot; 40 Shares</span>
+                    </div>
+                </div>
+                <div class="post-activity">
+                    <div>
+                        <img src="user 2.png" class="post-activity-user-icon">
+                        <img src="Down arrow.png" class="post-activity-arrow-icon">
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="like.png">
+                        <span>Like</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="Commnt.png">
+                        <span>Comment</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="share.png">
+                        <span>Share</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="send.png">
+                        <span>Send</span>
+                    </div>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-people">
+                    <img src="user 3.png">
+                    <div>
+                        <h1>Ronak Fernandies</h1>
+                        <small>Founder & EO of Gellelio Group | Angle Inverstor</small>
+                        <small>2 Hours ago</small>
+                    </div>
+                </div>
+                <p>The Success of every Website depends on search engine optimisation and digital marketing strategy.
+                    If you are on first page off all major search engines then you are ahead your competitors.
+                </p>
+                <img src="post-iamges 3.png" width="100%">
+                <div class="post-stats">
+                    <div>
+                        <img src="thmub.png">
+                        <img src="love.png">
+                        <img src="clap.png">
+                        <span class="liked-users">Abhinav Mishra & 75 others</span>
+                    </div>
+                    <div>
+                        <span>22 Comments &middot; 40 Shares</span>
+                    </div>
+                </div>
+                <div class="post-activity">
+                    <div>
+                        <img src="user 2.png" class="post-activity-user-icon">
+                        <img src="Down arrow.png" class="post-activity-arrow-icon">
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="like.png">
+                        <span>Like</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="Commnt.png">
+                        <span>Comment</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="share.png">
+                        <span>Share</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="send.png">
+                        <span>Send</span>
+                    </div>
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-people">
+                    <img src="user 5.png">
+                    <div>
+                        <h1>Netra topale</h1>
+                        <small>Founder & EO of Gellelio Group | Angle Inverstor</small>
+                        <small>2 Hours ago</small>
+                    </div>
+                </div>
+                <p>The Success of every Website depends on search engine optimisation and digital marketing strategy.
+                    If you are on first page off all major search engines then you are ahead your competitors.
+                </p>
+                <img src="post-iamges 1.png" width="100%">
+                <div class="post-stats">
+                    <div>
+                        <img src="thmub.png">
+                        <img src="love.png">
+                        <img src="clap.png">
+                        <span class="liked-users">Abhinav Mishra & 75 others</span>
+                    </div>
+                    <div>
+                        <span>22 Comments &middot; 40 Shares</span>
+                    </div>
+                </div>
+                <div class="post-activity">
+                    <div>
+                        <img src="user 2.png" class="post-activity-user-icon">
+                        <img src="Down arrow.png" class="post-activity-arrow-icon">
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="like.png">
+                        <span>Like</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="Commnt.png">
+                        <span>Comment</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="share.png">
+                        <span>Share</span>
+                    </div>
+                    <div class="post-activity-link">
+                        <img src="send.png">
+                        <span>Send</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ---------------------------------------right-sidebar-starts------------------------>
+        <div class="right-sidebar">
+            <div class="sidebar-news">
+                <img src="more.png" class="info-icon">
+                <h3>Tranding News</h3>
+                <a href="#">High Dedand for skilled manpower</a>
+                <span>1d ago & middot; 193 readers</span>
+                <a href="#">High Dedand for skilled manpower</a>
+                <span>5d ago & middot; 1,094 readers</span>
+                <a href="#">High Dedand for skilled manpower</a>
+                <span>10d ago & middot; 2,631 readers</span>
+                <a href="#">High Dedand for skilled manpower</a>
+                <span>20d ago & middot; 5,999 readers</span>
+                <a href="#">High Dedand for skilled manpower</a>
+                <span>29d ago & middot; 10,934 readers</span>
+
+                <a href="#" class="read-morelink">Read More</a>
+            </div>
+            <div class="sidebar-ad">
+                <small>Ad &middot; &middot; &middot;</small>
+                <p>Master the 5 principle of web design</p>
+                <img src="user 2.png">
+                <img src="xioami 2.png">
+                <b>Brand & Demand in Xioami</b>
+                <a href="#" class="ad-link">Learn More</a>
+            </div>
+            <div class="sidebar-usefullink">
+                <a href="#">About</a>
+                <a href="#">Accessiblity</a>
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Advertising</a>
+                <a href="#">Get The App</a>
+                <a href="#">More</a>
+            <div class="coppyright-msg">
+                <img src="Company logo.png">
+                <p>CarrerNest &#169; 2026. All right reserved</p>
+            </div>
+            </div>
+        </div>
+     </div>
+     </div>
+     </div>
+     <!-- --------------------------------------jobs-page-starts-below-------------- -->
+     <div id="jobsPage" style="display:none;">
+        <div class="home-body">
+        <div class="container">
+     <!-- ----------------------------------job-left-sidebar-starts----------------- -->
+      <div class="job-left-sidebar">
+            <div class="sidebar-profilebox">
+                <a href="#" onclick="showPage('profilePage')"><img src="cover-pic.png" width="100%"></a>
+            <div class="sidebar-profileinfo">
+                <a href="#" onclick="showPage('profilePage')"><img src="user 2.png" class="profilePic"></a>
+                <h1 class="userName"></h1>
+                <h3>Web Developer at Microsoft</h3>
+                <ul>
+                    <li>Your Profile views <span>52</span></li>
+                    <li>Your post views <span>25</span></li>
+                    <li>Your Connections views <span>520</span></li>
+                </ul>
+            </div>
+            <div class="sidebar-profilelink">
+                <a href="#"><img src="save.png">My items</a>
+                <a href="#"><img src="premium.png">Try premium</a>
+            </div>
+            </div>
+            <div class="job-sidebar-activity">
+                <a href="#"><img src="preferance.png">Preferance</a>
+                <a href="#"><img src="job traker.png">Job Traker</a>
+                <a href="#"><img src="premium.png">My Carrer Insights</a>
+                <a href="#"><img src="apply.png"><p>Applied Jobs</p></a><ul id="appliedJobsList"></ul>
+                <hr>
+            <div class="job-sidebar-activityt">
+                <a href="#"><img src="post2.png">Post a free job</a>
+                </div>
+            </div>
+        </div>
+    <!-- -------------------------------job-right-sidebar------------------------------  -->
+     <div class="job-right-sidebar">
+        <div class="job-sidebar-heading">
+            <div class="search-box" style="margin: 15px 0; width: 100%; border: 1px solid #ccc;">
+        <img src="search.png">
+        <input type="text" id="jobSearch" placeholder="Search jobs..." onkeyup="searchJobs()" style="width: 100%;">
+            </div>
+            <h2>Jobs That Matchs your Profile</h2>
+            <p>Based on the Job criteria and your profile</p>
+                <div class="profile-des-row">
+                    <img src="microsoft.png">
+                     <div>
+                        <h3>Web Developer Intern</h3>
+                        <b>Microsoft India &#8226; Navi-Mumbai </b>
+                        <a href="#" class="job-see-more-link">See more...</a>
+                        <a href="#"onclick="saveJob('Web Developer Intern')" class="job-ad-link">Save</a>
+                        <a href="#" class="job-ad-link-1">Internship</a>
+                        <a href="#" class="job-ad-link-2" onclick="applyJob('Web Developer Intern')">Apply Now</a>
+                        
+                     </div>
+                </div>
+                <div class="profile-des-row">
+                    <img src="google.png">
+                     <div>
+                        <h3>Full Stack Developer</h3>
+                        <b>Google India &#8226; Dadar-Mumbai </b>
+                        <a href="#"  class="job-see-more-link">See more...</a>
+                        <a href="#" onclick="saveJob('Full Stack Developer')" class="job-ad-link">Save</a>
+                        <a href="#" class="job-ad-link-1">Internship</a>
+                        <a href="#" class="job-ad-link-2" onclick="applyJob('Full Stack Developer')">Apply Now</a>
+                        
+                     </div>
+                </div>
+                <div class="profile-des-row">
+                    <img src="xioami 2.png">
+                     <div>
+                        <h3>Software Developer</h3>
+                        <b>Xiaomi India &#8226; Bandra </b>
+                        <a href="#" class="job-see-more-link">See more...</a>
+                        <a href="#" onclick="saveJob('Software Developer')" class="job-ad-link">Save</a>
+                        <a href="#" class="job-ad-link-1">Internship</a>
+                        <a href="#" class="job-ad-link-2" onclick="applyJob('Software Developer')">Apply Now</a>
+                        
+                     </div>
+                </div>
+                <div class="profile-des-row">
+                    <img src="oppo.png">
+                     <div>
+                        <h3>Software Developer</h3>
+                        <b>OPPO India India &#8226; BKC Mumbai </b>
+                        <a href="#" class="job-see-more-link">See more...</a>
+                        <a href="#" onclick="saveJob('Software Developer')" class="job-ad-link">Save</a>
+                        <a href="#" class="job-ad-link-1">Internship</a>
+                        <a href="#" class="job-ad-link-2" onclick="applyJob('Software Developer')">Apply Now</a>
+                        
+                     </div>
+                </div>
+                <div class="profile-des-row">
+                    <img src="apple.png">
+                     <div>
+                        <h3>Software Developer / UI-UX Designer</h3>
+                        <b>Apple India &#8226; CSMT </b>
+                        <a href="#" class="job-see-more-link">See more...</a>
+                        <a href="#" onclick="saveJob('Software Developer / UI-UX Designer')" class="job-ad-link">Save</a>
+                        <a href="#" class="job-ad-link-1">Internship</a>
+                        <a href="#" class="job-ad-link-2" onclick="applyJob('Software Developer / UI-UX Designer')">Apply Now</a>
+                        
+                     </div>
+                </div>
+     </div> 
+    <div class="job-description">
+        <h2>More Jobs For You</h2>
+        <p>Based on your profile, preferences, and activity like applies, searches, and saves</p>
+        <div class="profile-des-row">
+                    <img src="facebook.png">
+                     <div>
+                        <h3>Data-base Manegar</h3>
+                        <b>facebook India &#8226; Kurla </b>
+                        <a href="#" class="job-see-more-link">See more...</a>
+                        <a href="#" onclick="saveJob('Data-base Manegar')" class="job-ad-link">Save</a>
+                        <a href="#" class="job-ad-link-1">Internship</a>
+                        <a href="#" class="job-ad-link-2" onclick="applyJob('Data-base Manegar')">Apply Now</a>
+                        
+                     </div>
+                </div>
+                <div class="profile-des-row">
+                    <img src="Utube.png">
+                     <div>
+                        <h3>Data-base Manegar</h3>
+                        <b>Youtube India &#8226; Kalyan </b>
+                        <a href="#" class="job-see-more-link">See more...</a>
+                        <a href="#" onclick="saveJob('Data-base Manegar')" class="job-ad-link">Save</a>
+                        <a href="#" class="job-ad-link-1">Internship</a>
+                        <a href="#" class="job-ad-link-2" onclick="applyJob('Data-base Manegar')">Apply Now</a>
+                        
+                     </div>
+                </div>
+                <div class="profile-des-row">
+                    <img src="wsapp.png">
+                     <div>
+                        <h3>Cyber Security</h3>
+                        <b>Whatsapp India &#8226; Delhi </b>
+                        <a href="#" class="job-see-more-link">See more...</a>
+                        <a href="#" onclick="saveJob('Cyber Security')" class="job-ad-link">Save</a>
+                        <a href="#" class="job-ad-link-1">Internship</a>
+                        <a href="#" class="job-ad-link-2" onclick="applyJob('Cyber Security')">Apply Now</a>
+                        
+                     </div>
+                </div>
+                <div class="profile-des-row">
+                    <img src="x.png">
+                     <div>
+                        <h3>Website Developer / UI-UX Designer</h3>
+                        <b>X India &#8226; Panvel </b>
+                        <a href="#" class="job-see-more-link">See more...</a>
+                        <a href="#" onclick="saveJob('Website Developer / UI-UX Designer')" class="job-ad-link">Save</a>
+                        <a href="#" class="job-ad-link-1">Internship</a>
+                        <a href="#" class="job-ad-link-2" onclick="applyJob('Website Developer / UI-UX Designer')">Apply Now</a>
+                        
+                     </div>
+                </div>
+                <div class="profile-des-row">
+                    <img src="gpt.png">
+                     <div>
+                        <h3>Software Developer / UI-UX Designer</h3>
+                        <b>Chatgpt India &#8226; Andheri </b>
+                        <a href="#" class="job-see-more-link">See more...</a>
+                        <a href="#" onclick="saveJob('Software Developer / UI-UX Designer')" class="job-ad-link">Save</a>
+                        <a href="#" class="job-ad-link-1">Internship</a>
+                        <a href="#" class="job-ad-link-2" onclick="applyJob('Website Developer / UI-UX Designer')">Apply Now</a>
+                        
+                     </div>
+                </div>
+                <a href="#" class="job-see-all-job-link">Show All Jobs<img src="right arrow.png"></a>
+    </div>                
+            <div class="sidebar-usefullink">
+                <a href="#">About</a>
+                <a href="#">Accessiblity</a>
+                <a href="#">Help Center</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Advertising</a>
+                <a href="#">Get The App</a>
+                <a href="#">More</a>
+            <div class="coppyright-msg">
+                <img src="Company logo.png">
+                <p>CarrerNest &#169; 2026. All right reserved</p>
+            </div>
+            </div>
+     </div>
+     </div>
+    </div>
+    </div>
+    <!-- -----------------------------profile-page-strats-below------------------------- -->
+       <div id="profilePage" style="display:none;">
+        <div class="home-body">
+        <div class="container">
+        <div class="profile-main">
+            <div class="profile-container">
+            <img src="cover-pic 2.png " width="100%">
+            <div class="profile-container-inner">
+                <img id="mainProfilePic" src="user 2.png" class="profile-pic">
+                <h1 id="profileName" class="userName"></h1>
+                <b id="profileHeadline"></b>
+                <p id="profileEmail"></p>
+                <p id="profilePhone"></p>
+                <p id="profileLocation"><a href="#">Contact Info</a></p>
+                <div class="mutual-connection">
+                    <img src="user 3.png">
+                    <span>1 Mutual Connection: Orlando Diggs</span>
+                </div>
+                <div class="profile-btn">
+                    <a href="#" class="primery-btn" onclick="connectUser(this)"><img src="Connect 2.png">Connect</a>
+                    <a href="#"><img src="Chat.png">message</a>
+                    <a href="#" class="primery-btn" onclick="showPage('editProfilePage')">Edit Profile</a>
+                </div>
+            </div>
+            </div>
+            <div class="description">
+                <h2>About</h2>
+                <p id="profileAbout"></p>
+                <a href="#" class="see-more-link">See more...</a>
+            </div>
+            <div class="description">
+           <h2>Experience</h2>
+          <div id="experienceSection"></div>
+           </div>
+            <div class="description">
+                <h2>Education</h2>
+                <div id="educationSection"></div>
+                <div id="educationSection2"></div>
+                </div>
+                <div id="profileSkills" class="description">
+                    <h2 >Skills</h2>
+                    <a href="#" class="skill-btn">Leadership</a>
+                    <a href="#" class="skill-btn">Web Design</a>
+                    <a href="#" class="skill-btn">Devlopment</a>
+                    <a href="#" class="skill-btn">Communication</a>
+                    <a href="#" class="skill-btn">UI / UX</a>
+                    <a href="#" class="skill-btn">Python</a>
+                    <a href="#" class="skill-btn">Coding</a>
+                    <a href="#" class="skill-btn">Javascript</a>
+                </div>
+                <div class="description">
+                    <h2>Languages</h2>
+                    <a href="#" class="language-btn">English</a>
+                    <a href="#" class="language-btn">Marathi</a>
+                    <a href="#" class="language-btn">Hindi</a>
+                
+                </div>
+                
+            </div>
+            <!-- -------------------profile-sidebar-------------------------- -->
+            <div class="profile-sidebar">
+                <div class="sidebar-ad">
+                <small>Ad &middot; &middot; &middot;</small>
+                <p>Master the 5 principle of web design</p>
+                <img src="user 2.png">
+                <img src="xioami 2.png">
+                <b>Brand & Demand in Xioami</b>
+                <a href="#" class="ad-link">Learn More</a>
+            </div>
+            <div class="sidebar-people">
+                <h3>People you may Know</h3>
+                <div class="sidebar-people-row">
+                    <img src="user 4.png">
+                <div>
+                    <h2>Precilla Tony</h2>
+                    <p>Head of Marketing at alibaba</p>
+                    <a href="#">Connect</a>
+                </div>
+                </div>
+                <div class="sidebar-people-row">
+                    <img src="user 6.png">
+                <div>
+                    <h2>Ethan Carter</h2>
+                    <p>Head of Marketing at alibaba</p>
+                    <a href="#">Connect</a>
+                </div>
+                </div>
+                <div class="sidebar-people-row">
+                    <img src="user 7.png">
+                <div>
+                    <h2>Olivia Davis</h2>
+                    <p>Head of Marketing at alibaba</p>
+                    <a href="#">Connect</a>
+                </div>
+                </div>
+                <div class="sidebar-people-row">
+                    <img src="user 8.png">
+                <div>
+                    <h2>Liam Anderson</h2>
+                    <p>Head of Marketing at alibaba</p>
+                    <a href="#">Connect</a>
+                </div>
+                </div>
+                <div class="sidebar-people-row">
+                    <img src="user 9.png">
+                <div>
+                    <h2>Ryan Cooper</h2>
+                    <p>Head of Marketing at alibaba</p>
+                    <a href="#">Connect</a>
+                </div>
+                </div>
+                <div class="sidebar-people-row">
+                    <img src="user 10.png">
+                <div>
+                    <h2>Michael Turner</h2>
+                    <p>Head of Marketing at alibaba</p>
+                    <a href="#">Connect</a>
+                </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+       </div>
+       </div>
+<!-- ----------------------------------edit-profile-page-starts-below------------------------ -->
+       <div id="editProfilePage" style="display:none;">
+        <div class="home-body">
+        <div class="profile-container">
+
+<div class="profile-header">
+
+<div class="cover-photo"></div>
+
+<div class="profile-info">
+
+<img src="user 2.png" id="profilePic" class="profile-pic">
+
+<div class="edit-photo">
+
+<input type="file" id="photoInput" accept="image/*">
+
+</div>
+
+<input type="text" id="name" placeholder="Your Name">
+
+<input type="text" id="headline" placeholder="Your Headline">
+
+<input type="text" id="location" placeholder="Location">
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="text" id="phone" placeholder="Phone Number">
+
+<button class="btn" onclick="saveProfile()">Save Profile</button>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>About</h2>
+
+<textarea id="about" placeholder="Write about yourself..."></textarea>
+
+<button class="btn" onclick="saveProfile()">Save About</button>
+
+</div>
+
+<div class="section">
+
+<h2>Skills</h2>
+
+<input type="text" id="skillInput" placeholder="Add a skill">
+
+<button class="btn" onclick="addSkill()">Add Skill</button>
+
+<div class="skills" id="skillsContainer"></div>
+
+</div>
+<div class="section">
+    <h2>Education</h2>
+    <input type="text" id="college" placeholder="College Name">
+    <input type="text" id="degree" placeholder="Degree">
+    <input type="text" id="eduYear" placeholder="Year">
+    <button class="btn" onclick="saveEducation()"> Add Education</button>
+</div>
+<div class="section">
+    <h2>Experience</h2>
+    <input type="text" id="company" placeholder="Company">
+    <input type="text" id="position" placeholder="Position">
+    <input type="text" id="duration" placeholder="Duration">
+    <button class="btn" onclick="saveExperience()">Add Experience</button>
+</div>
+<div class="section">
+    <h2>2nd-Experience(optional)</h2>
+    <input type="text" id="company2" placeholder="Company">
+    <input type="text" id="position2" placeholder="Position">
+    <input type="text" id="duration2" placeholder="Duration">
+    <button class="btn" onclick="saveExperience2()">Add Experience</button>
+</div>
+</div>
+<a href="Profile.html"><button class="btn" onclick="saveProfile()" >Save Profile</button></a>
+
+</div>
+</div>
+<!-- ----------------------------network page-starts---------------------- -->
+<div id="networksPage" style="display: none;" class="networks-page">
+  <div class="networks-header">
+      <h2>Networking Groups</h2>
+      <button class="btn-primary" onclick="createNetworkGroup()">+ Create Group</button>
+  </div>
+  <div id="networksGrid" class="networks-grid">
+  </div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+emailjs.init("o7k9JpfQNPQ-bjRI0");
+
+let generatedOTP = "";   
+window.onload = function(){
+    // Initial page load setup
+    document.getElementById("loginPage").style.display = "block";
+    document.getElementById("signupPage").style.display = "none";
+    document.getElementById("forgotPage").style.display = "none";
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("jobsPage").style.display = "none";
+
+    let profilePage = document.getElementById("profilePage");
+    if(profilePage) profilePage.style.display = "none";
+
+    let editProfilePage = document.getElementById("editProfilePage");
+    if(editProfilePage) editProfilePage.style.display = "none";
+
+    // Load logged-in user name if available
+    let name = localStorage.getItem("loggedInUser");
+    if(name){
+        let elements = document.getElementsByClassName("userName");
+        for(let i = 0; i < elements.length; i++){
+            elements[i].innerText = name;
+        }
+    }
+
+    // Check login state
+    if(localStorage.getItem("loggedInUser") === null){
+        // If you want to force login, handle accordingly here
+    }
+
+    // Load user data for profile if exists
+    let user = JSON.parse(localStorage.getItem("user"));
+    if(user){
+        let names = document.getElementsByClassName("userName");
+        for(let i = 0; i < names.length; i++){
+            names[i].innerText = user.name;
+        }
+        let phone = document.getElementById("profilePhone");
+        if (phone) {
+            phone.innerText = "Phone: " + user.phone;
+        }
+    }
+
+    // Render applied jobs list
+    let jobs = JSON.parse(localStorage.getItem("appliedJobs")) || [];
+    let list = document.getElementById("appliedJobsList");
+    if(list){
+        jobs.forEach(function(job){
+            let li = document.createElement("li");
+            li.innerText = job;
+            list.appendChild(li);
+        });
+    }
+
+    if(user){
+
+        let names = document.getElementsByClassName("userName");
+
+        for(let i = 0; i < names.length; i++){
+            names[i].innerText = user.name;
+        }
+
+        document.getElementById("profileEmail").innerText =
+            "Email: " + user.email;
+
+        document.getElementById("profilePhone").innerText =
+            "Phone: " + user.phone;
+    }
+
+    document.getElementById("profileName").innerText =
+        localStorage.getItem("name") || "Your Name";
+
+    document.getElementById("profileHeadline").innerText =
+        localStorage.getItem("headline") || "Your Headline";
+
+    const locationElement = document.getElementById("profileLocation");
+    if(locationElement){
+        locationElement.innerText =
+            localStorage.getItem("location") || "Location";
+    }
+
+    const aboutElement = document.getElementById("profileAbout");
+    if(aboutElement){
+        aboutElement.innerText =
+            localStorage.getItem("about") || "About Yourself";
+    }
+
+    const profilePic = localStorage.getItem("profilePic");
+
+    if(profilePic){
+        document.getElementById("mainProfilePic").src = profilePic;
+    }
+
+    const skills = JSON.parse(localStorage.getItem("skills")) || [];
+
+    let skillsHTML = "<h2>Skills</h2>";
+
+    skills.forEach(skill => {
+        skillsHTML += `<a href="#" class="skill-btn">${skill}</a>`;
+    });
+
+    document.getElementById("profileSkills").innerHTML = skillsHTML;
+    const education =
+JSON.parse(localStorage.getItem("education"));
+
+if(education){
+
+document.getElementById("educationSection").innerHTML = `
+<h3>${education.college}</h3>
+<b>${education.degree}</b>
+<p>${education.year}</p>
+`;
+}
+const experience = JSON.parse(localStorage.getItem("experience"));
+
+if(experience){
+    document.getElementById("experienceSection").innerHTML = `...`;
+
+    // Move the second check INSIDE this block so it knows what "experience" is
+    if(document.getElementById("experienceSection2")){
+        document.getElementById("experienceSection2").innerHTML = `...`;
+    }
+}
+function loadEditProfile(){
+
+    document.getElementById("name").value =
+        localStorage.getItem("name") || "";
+
+    document.getElementById("headline").value =
+        localStorage.getItem("headline") || "";
+
+    document.getElementById("location").value =
+        localStorage.getItem("location") || "";
+
+    document.getElementById("email").value =
+        localStorage.getItem("email") || "";
+
+    document.getElementById("phone").value =
+        localStorage.getItem("phone") || "";
+
+    document.getElementById("about").value =
+        localStorage.getItem("about") || "";
+
+    const pic = localStorage.getItem("profilePic");
+
+    if(pic){
+        document.getElementById("profilePic").src = pic;
+    }
+}
+};
+
+function showSection(page){
+    const pages=[
+        "loginPage",
+        "signupPage",
+        "forgotPage",
+        "homePage",
+        "jobsPage",
+        "profilePage",
+        "editProfilePage",
+        "networksPage"
+    ];
+
+    pages.forEach(function(id){
+        let p = document.getElementById(id);
+        if(p){
+            p.style.display = "none";
+        }
+    });
+
+    let targetPage = document.getElementById(page);
+    if(targetPage){
+        targetPage.style.display = "block";
+    }
+
+    // Call render function if opening networks page
+    if(page === "networksPage"){
+        renderNetworkGroups();
+    }
+
+    let navbar = document.getElementById("Navbar");
+    if(navbar){
+        if(page === "loginPage" || page === "signupPage" || page === "forgotPage"){
+            navbar.style.display = "none";
+        } else {
+            navbar.style.display = "block";
+        }
+    }
+}
+
+function showPage(page){
+    showSection(page);
+    if(page === "editProfilePage" && typeof loadEditProfile === "function"){
+        loadEditProfile();
+    }
+}
+
+// --------------------------- Login Script -----------------
+function loginUser(event){
+    event.preventDefault();
+
+    let email = document.getElementById("loginemail").value;
+    let password = document.getElementById("loginpassword").value;
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if(users.length === 0){
+        alert("No accounts found. Please Sign Up first.");
+        return;
+    }
+    let foundUser = users.find(u => u.email === email && u.password === password);
+
+    if(foundUser){
+        localStorage.setItem("loggedInUser", foundUser.name);
+        localStorage.setItem("user", JSON.stringify(foundUser)); 
+        
+        sendOTP(email);
+    } else {
+        alert("Invalid Email or Password");
+    }
+}
+function sendOTP(email) {
+    generatedOTP = Math.floor(100000 + Math.random() * 900000);
+
+    let otpBox = document.getElementById("otp-box");
+    if (otpBox) {
+        otpBox.style.display = "block";
+    } else {
+        console.error("Error: Element with ID 'otp-box' not found in HTML!");
+    }
+
+    let templateParams = {
+        user_email: email,
+        otp: generatedOTP
+    };
+
+    emailjs.send("service_omkar2009", "template_b66dkql", templateParams)
+        .then(function(response) {
+            console.log("EmailJS Success:", response);
+        })
+        .catch(function(error) {
+            console.log("EmailJS Error:", error);
+        });
+}
+function verifyLoginOTP() {
+    let enteredOTP = document.getElementById("loginEnteredOTP").value.trim();
+
+    if (Number(enteredOTP) === Number(generatedOTP)) {
+        alert("Login Successful!");
+        
+        // Clear the OTP input and hide the section again for next time
+        document.getElementById("loginEnteredOTP").value = "";
+        document.getElementById("otp-box").style.display = "none";
+        
+        // Redirect to the homepage
+        showSection("homePage");
+    } else {
+        alert("Invalid OTP. Please try again.");
+    }
+}
+// ---------------------------- Signup Script ---------------
+function registerUser(event){
+    event.preventDefault();
+    let user = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("signupemail").value,
+        password: document.getElementById("signuppassword").value
+    };
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    let userExists = users.some(u => u.email === user.email);
+    if(userExists){
+        alert("This email is already registered! Please log in.");
+        return false;
+    }
+    users.push(user);
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("user", JSON.stringify(user)); 
+    alert("Signup Successful! Please log in.");
+    showSection("loginPage");
+
+    return false;
+}
+// -------------------------- Forgot Password Script -----------
+function sendforgotOTP() {
+    let email = document.getElementById("forgotEmail").value.trim().toLowerCase();
+
+    if(email === ""){
+        alert("Please enter your email");
+        return;
+    }
+  
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    let foundUser = users.find(u => u.email.trim().toLowerCase() === email);
+
+    if(!foundUser){
+        alert("Email not registered");
+        return;
+    }
+    localStorage.setItem("resettingEmail", email);
+    generatedOTP = Math.floor(100000 + Math.random() * 900000);
+
+    let templateParams = {
+        user_email: email,
+        otp: generatedOTP
+    };
+
+    emailjs.send(
+        "service_omkar2009",
+        "template_b66dkql",
+        templateParams
+    )
+    .then(function(response){
+        alert("OTP sent successfully. Check your email.");
+    })
+    .catch(function(error) {
+        console.log(error);
+        alert("Failed to send OTP");
+    });
+}
+
+function verifyForgotOTP(){
+    let enteredOTP = document.getElementById("forgotOtp").value;
+    let newPassword = document.getElementById("newPassword").value;
+    let resettingEmail = localStorage.getItem("resettingEmail");
+
+    if(Number(enteredOTP) !== Number(generatedOTP)){
+        alert("Invalid OTP");
+        return;
+    }
+
+    if(newPassword.length < 6){
+        alert("Password must be at least 6 characters");
+        return;
+    }
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    let userIndex = users.findIndex(u => u.email.trim().toLowerCase() === resettingEmail);
+
+    if(userIndex !== -1) {
+        users[userIndex].password = newPassword;
+        localStorage.setItem("users", JSON.stringify(users)); // Save updated array
+        localStorage.removeItem("resettingEmail");
+        
+        alert("Password reset successful");
+        showSection("loginPage"); 
+    } else {
+        alert("Error: User not found during password reset.");
+    }
+}
+// --------------------------Dynamic-Post-Creation--------------------------
+function createPost() {
+    let postText = document.getElementById("newPostContent").value.trim();
+    
+    if (postText === "") {
+        alert("Please write something before posting.");
+        return;
+    }
+
+    // Get the current logged-in user's name
+    let authorName = localStorage.getItem("loggedInUser") || "User";
+
+    // Create a new post div using standard HTML template
+    let newPostDiv = document.createElement("div");
+    newPostDiv.className = "post";
+    
+    newPostDiv.innerHTML = `
+        <div class="post-people">
+            <img src="user 2.png">
+            <div>
+                <h1>${authorName}</h1>
+                <small>Software Engineer | CareerNest Member</small>
+                <small>Just now</small>
+            </div>
+        </div>
+        <p>${postText}</p>
+        <div class="post-stats">
+            <div>
+                <img src="thmub.png">
+                <span class="liked-users">Be the first to like this</span>
+            </div>
+            <div>
+                <span>0 Comments &middot; 0 Shares</span>
+            </div>
+        </div>
+        <div class="post-activity">
+            <div class="post-activity-link">
+                <img src="like.png"><span>Like</span>
+            </div>
+            <div class="post-activity-link">
+                <img src="Commnt.png"><span>Comment</span>
+            </div>
+            <div class="post-activity-link">
+                <img src="share.png"><span>Share</span>
+            </div>
+        </div>
+    `;
+
+    // Insert the new post right after the "sort-by" div
+    let sortDiv = document.querySelector(".sort-by");
+    sortDiv.insertAdjacentElement("afterend", newPostDiv);
+
+    // Clear the text area after posting
+    document.getElementById("newPostContent").value = "";
+    alert("Post published successfully!");
+}
+// ------------------------- Profile & Nav Controls --------------------
+let profilemenu = document.getElementById("profilemenu");
+function togglemenu(){
+    if(profilemenu) profilemenu.classList.toggle("open-menu");
+}
+
+function logoutUser(){
+    localStorage.removeItem("loggedInUser");
+    showSection("loginPage");
+}
+
+function updateProfile(){
+    let user = JSON.parse(localStorage.getItem("user"));
+    user.name = document.getElementById("editName").value;
+    user.email = document.getElementById("editEmail").value;
+    user.phone = document.getElementById("editPhone").value;
+
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("loggedInUser", user.name);
+
+    alert("Profile Updated Successfully");
+    location.reload();
+}
+
+// ------------------------------- Jobs Script ---------------------------------
+function saveJob(job){
+    localStorage.setItem("savedJob", job);
+    alert("Job Saved");
+}
+
+function searchJobs(){
+    let input = document.getElementById("jobSearch").value.toLowerCase();
+    let jobs = document.getElementsByClassName("profile-des-row");
+
+    for(let i = 0; i < jobs.length; i++){
+        let title = jobs[i].innerText.toLowerCase();
+        if(title.includes(input)){
+            jobs[i].style.display = "block";
+        } else {
+            jobs[i].style.display = "none";
+        }
+    }
+}
+
+function applyJob(jobTitle){
+    let appliedJobs = JSON.parse(localStorage.getItem("appliedJobs")) || [];
+
+    if(!appliedJobs.includes(jobTitle)){
+        appliedJobs.push(jobTitle);
+        localStorage.setItem("appliedJobs", JSON.stringify(appliedJobs));
+        alert("Application Submitted Successfully");
+    } else {
+        alert("Already Applied");
+    }
+}
+// ---------------------------------profile-page-java-script-strats----------------------------
+function togglemenu(){
+    profilemenu.classList.toggle("open-menu");
+}
+
+function connectUser(button){
+    button.innerText = "Request Sent";
+    button.disabled = true;
+}
+function showEditForm(){
+
+    document.getElementById("editForm").style.display = "block";
+
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    document.getElementById("editName").value = user.name;
+    document.getElementById("editEmail").value = user.email;
+    document.getElementById("editPhone").value = user.phone;
+}
+
+function updateProfile(){
+
+    let user = JSON.parse(localStorage.getItem("user"));
+
+    user.name = document.getElementById("editName").value;
+    user.email = document.getElementById("editEmail").value;
+    user.phone = document.getElementById("editPhone").value;
+
+    localStorage.setItem("user", JSON.stringify(user));
+
+    localStorage.setItem("loggedInUser", user.name);
+
+    alert("Profile Updated Successfully");
+
+    location.reload();
+}
+// ------------------------- Edit Profile Logic -------------------------
+
+function saveProfile() {
+    // Save standard profile info
+    localStorage.setItem("name", document.getElementById("name").value);
+    localStorage.setItem("headline", document.getElementById("headline").value);
+    localStorage.setItem("location", document.getElementById("location").value);
+    localStorage.setItem("email", document.getElementById("email").value);
+    localStorage.setItem("phone", document.getElementById("phone").value);
+    localStorage.setItem("about", document.getElementById("about").value);
+    
+    alert("Profile Saved successfully!");
+    location.reload(); // Reloads the page to instantly show updated data
+}
+
+function addSkill() {
+    let skillInput = document.getElementById("skillInput").value.trim();
+    if (skillInput !== "") {
+        // Fetch existing skills or create a new array
+        let skills = JSON.parse(localStorage.getItem("skills")) || [];
+        skills.push(skillInput);
+        localStorage.setItem("skills", JSON.stringify(skills));
+        
+        document.getElementById("skillInput").value = ""; // Clear the input box
+        alert("Skill Added!");
+    } else {
+        alert("Please enter a skill first.");
+    }
+}
+
+function saveEducation() {
+    let edu = {
+        college: document.getElementById("college").value,
+        degree: document.getElementById("degree").value,
+        year: document.getElementById("eduYear").value
+    };
+    localStorage.setItem("education", JSON.stringify(edu));
+    alert("Education Saved!");
+}
+
+function saveExperience() {
+    let exp = {
+        company: document.getElementById("company").value,
+        position: document.getElementById("position").value,
+        duration: document.getElementById("duration").value
+    };
+    localStorage.setItem("experience", JSON.stringify(exp));
+    alert("Experience Saved!");
+}
+
+function saveExperience2() {
+    let exp2 = {
+        company: document.getElementById("company2").value,
+        position: document.getElementById("position2").value,
+        duration: document.getElementById("duration2").value
+    };
+    localStorage.setItem("experience2", JSON.stringify(exp2));
+    alert("Second Experience Saved!");
+}
+// -----------------network-page-js--------------------
+function renderNetworkGroups() {
+    let networksGrid = document.getElementById("networksGrid");
+    if (!networksGrid) return;
+
+    let currentUser = localStorage.getItem("loggedInUser") || "Guest";
+
+    // Retrieve groups from localStorage
+    let rawGroups = JSON.parse(localStorage.getItem("networkingGroups")) || [];
+    
+    // Normalize data structure: convert any old string groups or missing arrays safely
+    let groups = rawGroups.map(g => {
+        if (typeof g === 'string') {
+            return { name: g, creator: "System", members: [currentUser] };
+        }
+        if (!g.members) {
+            g.members = g.creator ? [g.creator] : [];
+        }
+        return g;
+    });
+
+    // Save the normalized format back to localStorage to clear old cache bugs
+    localStorage.setItem("networkingGroups", JSON.stringify(groups));
+
+    // Clear grid and render default static group
+    networksGrid.innerHTML = `
+        <div class="network-card">
+            <img src="group.png" alt="Group Icon">
+            <h3>Web Design Group</h3>
+            <p>1,204 Members</p>
+            <button class="btn-outline">Joined</button>
+        </div>
+    `;
+    
+    // Loop through stored groups and build cards dynamically
+    groups.forEach((group) => {
+        let isCreator = (group.creator === currentUser);
+        let hasJoined = group.members.includes(currentUser);
+        let memberCount = group.members.length;
+        let memberText = isCreator ? `${memberCount} Member (You)` : `${memberCount} Members`;
+
+        let buttonHTML = "";
+        if (isCreator) {
+            buttonHTML = `<button class="btn-outline">Manage</button>`;
+        } else if (hasJoined) {
+            // Joined state: Show an "Exit" button styled nicely
+            buttonHTML = `<button class="btn-outline" onclick="exitNetworkGroup('${group.name.replace(/'/g, "\\'")}')" style="color: #d11124; border-color: #d11124;">Joined (Exit)</button>`;
+        } else {
+            // Not joined state: Show clean "Join" button
+            buttonHTML = `<button class="btn-primary" onclick="joinNetworkGroup('${group.name.replace(/'/g, "\\'")}')">Join</button>`;
+        }
+
+        networksGrid.innerHTML += `
+            <div class="network-card">
+                <img src="group.png" alt="Group Icon">
+                <h3>${group.name}</h3>
+                <p>${memberText}</p>
+                ${buttonHTML}
+            </div>
+        `;
+    });
+}
+
+function createNetworkGroup() {
+    let groupName = prompt("Enter the name of the networking group you want to create:");
+    
+    if (groupName && groupName.trim() !== "") {
+        let currentUser = localStorage.getItem("loggedInUser") || "Anonymous";
+        let rawGroups = JSON.parse(localStorage.getItem("networkingGroups")) || [];
+        
+        let groups = rawGroups.map(g => typeof g === 'string' ? { name: g, creator: "System", members: [currentUser] } : g);
+
+        let exists = groups.some(g => g.name.toLowerCase() === groupName.trim().toLowerCase());
+        if (exists) {
+            alert("A group with this name already exists!");
+            return;
+        }
+
+        groups.push({
+            name: groupName.trim(),
+            creator: currentUser,
+            members: [currentUser] // Creator is automatically a member
+        });
+
+        localStorage.setItem("networkingGroups", JSON.stringify(groups));
+        
+        alert("Networking group created successfully!");
+        renderNetworkGroups(); 
+    } else if (groupName !== null) {
+        alert("Group name cannot be empty.");
+    }
+}
+
+function joinNetworkGroup(groupName) {
+    let currentUser = localStorage.getItem("loggedInUser") || "Guest";
+    let rawGroups = JSON.parse(localStorage.getItem("networkingGroups")) || [];
+    
+    let groups = rawGroups.map(g => typeof g === 'string' ? { name: g, creator: "System", members: [] } : g);
+    let targetGroup = groups.find(g => g.name === groupName);
+
+    if (targetGroup) {
+        if (!targetGroup.members.includes(currentUser)) {
+            targetGroup.members.push(currentUser);
+            localStorage.setItem("networkingGroups", JSON.stringify(groups));
+            renderNetworkGroups(); 
+        }
+    }
+}
+
+function exitNetworkGroup(groupName) {
+    let currentUser = localStorage.getItem("loggedInUser") || "Guest";
+    let rawGroups = JSON.parse(localStorage.getItem("networkingGroups")) || [];
+    
+    let groups = rawGroups.map(g => typeof g === 'string' ? { name: g, creator: "System", members: [] } : g);
+    let targetGroup = groups.find(g => g.name === groupName);
+
+    if (targetGroup) {
+        // Remove current user from members array
+        targetGroup.members = targetGroup.members.filter(member => member !== currentUser);
+        localStorage.setItem("networkingGroups", JSON.stringify(groups));
+        renderNetworkGroups(); // Refreshes grid immediately to show "Join" again
+    }
+}
+</script>
+</html>
