@@ -1518,6 +1518,7 @@ a {
         justify-content: space-between;
         align-items: center;
         gap: 10px;
+        padding-right: 45px;
     }
 
     .navbar-left .logo img {
@@ -1582,8 +1583,12 @@ a {
     }
 
     .navbar-right {
-        display: none;
-    }
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
 
 
     /* ---------- HOME ---------- */
@@ -1808,12 +1813,13 @@ a {
     /* ---------- PROFILE DROPDOWN ---------- */
 
     .profile-menu-wrap {
-        position: fixed;
-        top: auto;
-        right: 10px;
-        width: calc(100% - 20px);
-        max-width: 350px;
-    }
+     position: fixed;
+     top: 55px;
+     right: 10px;
+     width: calc(100% - 20px);
+     max-width: 350px;
+     z-index: 2000;
+}
 }
 
 
@@ -2216,7 +2222,7 @@ your career with CareerNest.
 </div>
 <div class="login-rightpanel_input" id="otp-box" style="display: none;">
 <input type="text" id="loginEnteredOTP" placeholder="Enter OTP">
-<button onclick="verifyLoginOTP()" class="submitbtn">Verify OTP</button>
+<button type="button" onclick="verifyLoginOTP()" class="submitbtn">Verify OTP</button>
 </div>
 Don't have account on CareerNest <a href="#" onclick="showSection('signupPage')">Signup</a>
 </form>
@@ -2358,7 +2364,7 @@ your career with CareerNest.
                     <p>Diplay & Accessiblity</p>
                     <span>></span>
                 </a>
-                <a href="log in.html" class="profile-menu-link">
+                <a href="#" onclick="showPage('loginPage'); return false;" class="profile-menu-link">
                     <img src="logout.png">
                     <p>logout</p>
                     <span>></span>
@@ -2374,9 +2380,9 @@ your career with CareerNest.
         <div class="left-sidebar">
     <!-- ----------------------------------left-sidebar-strats----------------- -->
             <div class="sidebar-profilebox">
-                <a href="#" onclick="showPage('profilePage')"><img src="cover-pic.png" width="100%"></a>
+                <a href="#" onclick="showPage('profilePage')"><img src="defualt-cover-pic.png" width="100%"></a>
             <div class="sidebar-profileinfo">
-                <a href="#" onclick="showPage('profilePage')"><img src="user 2.png" class="profilePic"></a>
+                <a href="#" onclick="showPage('profilePage')"><img src="default-User-DP-img.png" class="profilePic"></a>
                 <h1 class="userName"></h1>
                 <h3>Web Developer at Microsoft</h3>
                 <ul>
@@ -2503,7 +2509,7 @@ your career with CareerNest.
                 </div>
                 <div class="post-activity">
                     <div>
-                        <img src="user 2.png" class="post-activity-user-icon">
+                        <img src="default-User-DP-img.png" class="post-activity-user-icon">
                         <img src="Down arrow.png" class="post-activity-arrow-icon">
                     </div>
                     <div class="post-activity-link">
@@ -2640,7 +2646,7 @@ your career with CareerNest.
             <div class="sidebar-ad">
                 <small>Ad &middot; &middot; &middot;</small>
                 <p>Master the 5 principle of web design</p>
-                <img src="user 2.png">
+                <img src="default-User-DP-img.png">
                 <img src="xioami 2.png">
                 <b>Brand & Demand in Xioami</b>
                 <a href="#" class="ad-link">Learn More</a>
@@ -2669,9 +2675,9 @@ your career with CareerNest.
      <!-- ----------------------------------job-left-sidebar-starts----------------- -->
       <div class="job-left-sidebar">
             <div class="sidebar-profilebox">
-                <a href="#" onclick="showPage('profilePage')"><img src="cover-pic.png" width="100%"></a>
+                <a href="#" onclick="showPage('profilePage')"><img src="defualt-cover-pic.png" width="100%"></a>
             <div class="sidebar-profileinfo">
-                <a href="#" onclick="showPage('profilePage')"><img src="user 2.png" class="profilePic"></a>
+                <a href="#" onclick="showPage('profilePage')"><img src="default-User-DP-img.png" class="profilePic"></a>
                 <h1 class="userName"></h1>
                 <h3>Web Developer at Microsoft</h3>
                 <ul>
@@ -2854,9 +2860,9 @@ your career with CareerNest.
         <div class="container">
         <div class="profile-main">
             <div class="profile-container">
-            <img src="cover-pic 2.png " width="100%">
+            <img src="defualt-cover-pic.png" width="100%">
             <div class="profile-container-inner">
-                <img id="mainProfilePic" src="user 2.png" class="profile-pic">
+                <img id="mainProfilePic" src="default-User-DP-img.png" class="profile-pic">
                 <h1 id="profileName" class="userName"></h1>
                 <b id="profileHeadline"></b>
                 <p id="profileEmail"></p>
@@ -3051,7 +3057,7 @@ your career with CareerNest.
     <button class="btn" onclick="saveExperience2()">Add Experience</button>
 </div>
 </div>
-<a href="Profile.html"><button class="btn" onclick="saveProfile()" >Save Profile</button></a>
+<a href="Profile.html"><button class="submitbtn" onclick="showPage('profilePage')" >Save Profile</button></a>
 
 </div>
 </div>
@@ -3216,6 +3222,10 @@ function loadEditProfile(){
     if(pic){
         document.getElementById("profilePic").src = pic;
     }
+    loadProfileData();
+    if (typeof renderNetworkGroups === "function") {
+        renderNetworkGroups();
+    }
 }
 };
 
@@ -3274,7 +3284,7 @@ function loginUser(event){
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
     if(users.length === 0){
-        alert("No accounts found. Please Sign Up first.");
+        alert(`No accounts found for ${email}. Please Sign Up first.`);
         return;
     }
     let foundUser = users.find(u => u.email === email && u.password === password);
@@ -3290,7 +3300,8 @@ function loginUser(event){
 }
 function sendOTP(email) {
     generatedOTP = Math.floor(100000 + Math.random() * 900000);
-
+    
+    alert(`OTP is sent to your "${email}" email ID`);
     let otpBox = document.getElementById("otp-box");
     if (otpBox) {
         otpBox.style.display = "block";
@@ -3563,10 +3574,8 @@ function updateProfile(){
 
     location.reload();
 }
-// ------------------------- Edit Profile Logic -------------------------
-
+// --------------------------Edit-Profile-script-------------------------
 function saveProfile() {
-    // Save standard profile info
     localStorage.setItem("name", document.getElementById("name").value);
     localStorage.setItem("headline", document.getElementById("headline").value);
     localStorage.setItem("location", document.getElementById("location").value);
@@ -3575,18 +3584,17 @@ function saveProfile() {
     localStorage.setItem("about", document.getElementById("about").value);
     
     alert("Profile Saved successfully!");
-    location.reload(); // Reloads the page to instantly show updated data
+    location.reload();
 }
 
 function addSkill() {
     let skillInput = document.getElementById("skillInput").value.trim();
     if (skillInput !== "") {
-        // Fetch existing skills or create a new array
         let skills = JSON.parse(localStorage.getItem("skills")) || [];
         skills.push(skillInput);
         localStorage.setItem("skills", JSON.stringify(skills));
         
-        document.getElementById("skillInput").value = ""; // Clear the input box
+        document.getElementById("skillInput").value = ""; 
         alert("Skill Added!");
     } else {
         alert("Please enter a skill first.");
@@ -3621,6 +3629,39 @@ function saveExperience2() {
     };
     localStorage.setItem("experience2", JSON.stringify(exp2));
     alert("Second Experience Saved!");
+}
+function loadProfileData() {
+    // Load basic profile fields
+    if (document.getElementById("name")) document.getElementById("name").value = localStorage.getItem("name") || "";
+    if (document.getElementById("headline")) document.getElementById("headline").value = localStorage.getItem("headline") || "";
+    if (document.getElementById("location")) document.getElementById("location").value = localStorage.getItem("location") || "";
+    if (document.getElementById("email")) document.getElementById("email").value = localStorage.getItem("email") || "";
+    if (document.getElementById("phone")) document.getElementById("phone").value = localStorage.getItem("phone") || "";
+    if (document.getElementById("about")) document.getElementById("about").value = localStorage.getItem("about") || "";
+
+    // Load Education into view/inputs
+    let savedEdu = JSON.parse(localStorage.getItem("education"));
+    if (savedEdu) {
+        if (document.getElementById("college")) document.getElementById("college").value = savedEdu.college || "";
+        if (document.getElementById("degree")) document.getElementById("degree").value = savedEdu.degree || "";
+        if (document.getElementById("eduYear")) document.getElementById("eduYear").value = savedEdu.year || "";
+    }
+
+    // Load Experience 1 into view/inputs
+    let savedExp = JSON.parse(localStorage.getItem("experience"));
+    if (savedExp) {
+        if (document.getElementById("company")) document.getElementById("company").value = savedExp.company || "";
+        if (document.getElementById("position")) document.getElementById("position").value = savedExp.position || "";
+        if (document.getElementById("duration")) document.getElementById("duration").value = savedExp.duration || "";
+    }
+
+    // Load Experience 2 into view/inputs
+    let savedExp2 = JSON.parse(localStorage.getItem("experience2"));
+    if (savedExp2) {
+        if (document.getElementById("company2")) document.getElementById("company2").value = savedExp2.company || "";
+        if (document.getElementById("position2")) document.getElementById("position2").value = savedExp2.position || "";
+        if (document.getElementById("duration2")) document.getElementById("duration2").value = savedExp2.duration || "";
+    }
 }
 // -----------------network-page-js--------------------
 function renderNetworkGroups() {
@@ -3666,11 +3707,15 @@ function renderNetworkGroups() {
         let buttonHTML = "";
         if (isCreator) {
             buttonHTML = `<button class="btn-outline">Manage</button>`;
+        } 
+        if (isCreator) {
+            buttonHTML = `<button class="btn-outline" onclick="manageNetworkGroup('${group.name.replace(/'/g, "\\'")}')">Manage</button>`;
         } else if (hasJoined) {
-            // Joined state: Show an "Exit" button styled nicely
+        {
             buttonHTML = `<button class="btn-outline" onclick="exitNetworkGroup('${group.name.replace(/'/g, "\\'")}')" style="color: #d11124; border-color: #d11124;">Joined (Exit)</button>`;
-        } else {
-            // Not joined state: Show clean "Join" button
+        } 
+        }
+        else {
             buttonHTML = `<button class="btn-primary" onclick="joinNetworkGroup('${group.name.replace(/'/g, "\\'")}')">Join</button>`;
         }
 
@@ -3730,7 +3775,23 @@ function joinNetworkGroup(groupName) {
         }
     }
 }
+function manageNetworkGroup(groupName) {
+    let currentUser = localStorage.getItem("loggedInUser") || "Guest";
+    let rawGroups = JSON.parse(localStorage.getItem("networkingGroups")) || [];
+    let targetGroup = rawGroups.find(g => g.name === groupName);
 
+    if (targetGroup && targetGroup.creator === currentUser) {
+        let action = prompt(`Manage Group: "${targetGroup.name}"\nType "delete" to remove this group, or click Cancel.`);
+        if (action && action.trim().toLowerCase() === "delete") {
+            let updatedGroups = rawGroups.filter(g => g.name !== groupName);
+            localStorage.setItem("networkingGroups", JSON.stringify(updatedGroups));
+            alert("Group deleted successfully.");
+            renderNetworkGroups();
+        }
+    } else {
+        alert("You do not have permission to manage this group.");
+    }
+}
 function exitNetworkGroup(groupName) {
     let currentUser = localStorage.getItem("loggedInUser") || "Guest";
     let rawGroups = JSON.parse(localStorage.getItem("networkingGroups")) || [];
